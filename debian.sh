@@ -155,22 +155,11 @@ sudo pip3 install --upgrade pip
 sudo dbus-uuidgen --ensure
 sudo fc-cache -f -v
 
-# ffmpeg (built) manually for Raspbian
-if [ "${LINUX_DISTRO}" == 'Raspbian' ]; then
-    cd ~
-    git clone --depth 1 https://github.com/FFmpeg/FFmpeg.git ffmpeg
-    cd ffmpeg
-    ./configure --extra-ldflags="-latomic" --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree
-    make -j4
-    sudo make install
-    cd ~
-    rm -rf ffmpeg
-else
-    until sudo apt -y install ffmpeg
-    do
-        sleep 1
-    done
-fi
+until sudo apt -y install ffmpeg
+do
+    sleep 1
+done
+
 
 # Lighthouse
 until sudo npm install -g lighthouse
