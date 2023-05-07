@@ -39,7 +39,7 @@ set -eu
 : ${WPT_EPIPHANY:='y'}
 : ${WPT_OPERA:='n'}
 : ${WPT_VIVALDI:='n'}
-: ${LINUX_DISTRO:=`(lsb_release -is)`}
+: ${LINUX_DISTRO:='Raspbian'}
 : ${WPT_DEVICE_NAME:='Device'}
 : ${WPT_INTERACTIVE:='n'}
 if [ "${WPT_INTERACTIVE,,}" == 'y' ]; then
